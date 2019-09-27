@@ -12,21 +12,13 @@ public class QuantityTest {
 
         Quantity zeroFeet = new Quantity(0, Unit.feet);
 
-        assertTrue(zeroFeet.compare(zeroFeet));
+        assertTrue(zeroFeet.equals(zeroFeet));
     }
 
     @Test
     void givenOneFeet_whenCompare_thenShouldBeEqual(){
         Quantity oneFeet=new Quantity(1,Unit.feet);
 
-        assertTrue(oneFeet.compare(oneFeet));
-    }
-
-    @Test
-    void givenOneAndTwoFeets_whenCompare_thenShouldBeNotEqual(){
-        Quantity oneFeet=new Quantity(1,Unit.feet);
-        Quantity twoFeet=new Quantity(2,Unit.feet);
-
-        assertFalse(oneFeet.compare(twoFeet));
+        assertTrue(oneFeet.equals(oneFeet));
     }
 }
