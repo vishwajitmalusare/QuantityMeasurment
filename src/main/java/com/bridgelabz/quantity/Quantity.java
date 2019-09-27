@@ -1,15 +1,18 @@
 package com.bridgelabz.quantity;
 
 public class Quantity {
-    private final int feet;
-    private final int inches;
 
-    public Quantity(int feet, int inches) {
+
+    private final int value;
+    private final Unit feet;
+
+    public Quantity(int value, Unit feet) {
+
+        this.value = value;
         this.feet = feet;
-        this.inches = inches;
     }
 
-    public boolean compare() {
-        return true;
+    public boolean compare(Quantity quantity) {
+        return this.value==quantity.value;
     }
 }
