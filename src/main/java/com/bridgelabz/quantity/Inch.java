@@ -2,11 +2,17 @@ package com.bridgelabz.quantity;
 
 public class Inch {
     private int value;
+
     public Inch(int value) {
-        this.value=value;
+        this.value = value;
     }
 
-    public boolean equals(Inch inch){
-        return this.value == inch.value;
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Inch) {
+            return this.value == ((Inch) obj).value;
+        }
+        return false;
+
     }
 }

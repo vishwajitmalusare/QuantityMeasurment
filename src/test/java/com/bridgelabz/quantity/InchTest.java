@@ -22,5 +22,11 @@ public class InchTest {
         assertFalse(zero.equals(one));
     }
 
+    @Test
+    void givenZeroAndNull_whenCheckEquals_thenTheyShouldNotBeEqual() {
+        Inch zero = new Inch(0);
+
+        assertFalse(zero.equals(null));
+    }
 
 }
