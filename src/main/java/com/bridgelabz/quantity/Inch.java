@@ -7,6 +7,6 @@ public class Inch {
     }
 
     public boolean equals(Inch inch){
-        return true;
+        return this.value == inch.value;
     }
 }
