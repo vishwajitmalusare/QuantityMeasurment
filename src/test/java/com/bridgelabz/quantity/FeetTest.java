@@ -13,4 +13,12 @@ public class FeetTest {
 
         assertTrue(zero.equals(otherZero));
     }
+
+    @Test
+    void givenZeroAndAnotherObject_WhenChechEquals_ThenShouldNotBeEqual(){
+        Feet zero = new Feet(0);
+        Feet one = new Feet(1);
+        assertTrue(zero.equals(one));
+
+    }
 }
