@@ -29,7 +29,7 @@ public class LengthTest {
     }
 
     @Test
-    void givenZeroInch_whenCheckEquals_thenTheyShouldBeEqual() {
+    void givenZeroInch_whenCheckEquals_thenShouldBeEqual() {
         Length zero = new Length(0, Unit.inch);
         Length anotherZero = new Length(0, Unit.inch);
 
@@ -37,7 +37,7 @@ public class LengthTest {
     }
 
     @Test
-    void givenZeroAndOneInch_whenCheckEquals_thenTheyShouldNotBeEqual() {
+    void givenZeroAndOneInch_whenCheckEquals_thenShouldNotBeEqual() {
         Length zero = new Length(0, Unit.inch);
         Length one = new Length(1, Unit.inch);
 
@@ -45,17 +45,25 @@ public class LengthTest {
     }
 
     @Test
-    void givenZeroAndNull_whenCheckEquals_thenTheyShouldNotBeEqual() {
+    void givenZeroAndNull_whenCheckEquals_thenShouldNotBeEqual() {
         Length zero = new Length(0, Unit.inch);
 
         assertFalse(zero.equals(null));
     }
 
     @Test
-    void givenOneFeetAndOneInch_WhenCheckEquals_thenShouldNotBeEquals(){
+    void givenOneFoottAndOneInch_WhenCheckEquals_thenShouldNotBeEqual(){
         Length oneFoot = new Length(1, Unit.feet);
         Length oneInch = new Length(1, Unit.inch);
 
         assertFalse(oneFoot.equals(oneInch));
+    }
+
+    @Test
+    void givenZeroFeetAndZeroInch_whenCheckEquals_thenShouldBeEqual(){
+        Length zeroFeet = new Length(0, Unit.feet);
+        Length zeroInch = new Length(0, Unit.inch);
+
+        assertTrue(zeroFeet.equals(zeroInch));
     }
 }
