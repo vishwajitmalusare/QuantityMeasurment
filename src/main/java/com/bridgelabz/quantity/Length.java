@@ -1,6 +1,7 @@
 package com.bridgelabz.quantity;
 
 public class Length {
+    private final int ONE_FOOT_TO_INCH = 12;
     private int value;
     private Unit unit;
 
@@ -14,24 +15,17 @@ public class Length {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
+    public boolean equals(Object other) {
+
+        if (this == other) {
             return true;
         }
-        if (obj instanceof Length) {
-            if (this.value == 0 && ((Length) obj).value == 0) {
-                return true;
-            }
-            return this.value == ((Length) obj).value && this.unit == ((Length) obj).unit;
+        if (other instanceof Length) {
+            Length length = (Length) other;
+            return unit.convertToBase(this.value) == length.unit.convertToBase(length.value);
         }
+
         return false;
 
-    }
-
-    public Length convert() {
-        this.value = 12;
-        this.unit = Unit.inch;
-
-        return this;
     }
 }

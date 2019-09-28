@@ -1,5 +1,14 @@
 package com.bridgelabz.quantity;
 
 public enum Unit {
-    feet,inch;
+    feet(12),inch(1);
+
+    private int converter;
+
+    Unit(int converter){
+        this.converter=converter;
+    }
+    public int convertToBase(int value){
+       return value*converter;
+    };
 }

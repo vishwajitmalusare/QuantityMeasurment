@@ -32,6 +32,7 @@ public class LengthTest {
         }
     }
 
+    @Nested
     class InchTest {
         @Test
         void givenZeroInch_whenCheckEquals_thenShouldBeEqual() {
@@ -74,10 +75,20 @@ public class LengthTest {
     }
 
     @Test
-    void givenOneFoot_whenConvert_thenShouldWeGetTwelveInch() {
+    void givenOneFootAndTwelveInch_whenCheckEquals_thenShouldBeEqual() {
         Length oneFoot = new Length(1, Unit.feet);
         Length twelveInch = new Length(12, Unit.inch);
 
-        assertEquals(twelveInch, oneFoot.convert());
+        assertTrue(oneFoot.equals(twelveInch));
     }
+
+    @Test
+    void givenTwelveInchAndOneFoot_whenChecksEquals_thenShouldBeEqual() {
+        Length oneFoot = new Length(1, Unit.feet);
+        Length twelveInch = new Length(12, Unit.inch);
+
+        assertTrue(twelveInch.equals(oneFoot));
+    }
+
+
 }
