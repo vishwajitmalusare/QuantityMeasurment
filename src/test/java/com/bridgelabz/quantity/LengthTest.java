@@ -15,7 +15,7 @@ public class LengthTest {
     }
 
     @Test
-    void givenZeroAndOneFeet_WhenChechEquals_ThenShouldNotBeEqual(){
+    void givenZeroAndOneFeet_WhenCheckEquals_ThenShouldNotBeEqual(){
         Length zero = new Length(0, Unit.feet);
         Length one = new Length(1, Unit.feet);
         assertFalse(zero.equals(one));
@@ -49,5 +49,13 @@ public class LengthTest {
         Length zero = new Length(0, Unit.inch);
 
         assertFalse(zero.equals(null));
+    }
+
+    @Test
+    void givenOneFeetAndOneInch_WhenCheckEquals_thenShouldNotBeEquals(){
+        Length oneFoot = new Length(1, Unit.feet);
+        Length oneInch = new Length(1, Unit.inch);
+
+        assertFalse(oneFoot.equals(oneInch));
     }
 }

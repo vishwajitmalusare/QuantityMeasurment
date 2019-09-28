@@ -12,7 +12,7 @@ public class Length {
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof Length) {
-            return this.value == ((Length) obj).value;
+            return this.value == ((Length) obj).value && this.unit==((Length) obj).unit;
         }
         return false;
 
