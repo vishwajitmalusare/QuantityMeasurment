@@ -217,5 +217,13 @@ class LengthTest {
         assertFalse(oneGallon.equals(zeroLiter));
     }
 
+    @Test
+    void givenOneGallonAndThreePointSevenEightLiters_WhenCheckEquals_ThenShouldNotBeEqual(){
+        Quantity oneGallon = new Quantity(1.0, Unit.gallon);
+        Quantity threePointSevenEightLiter = new Quantity(3.78, Unit.liters);
+
+        assertTrue(oneGallon.equals(threePointSevenEightLiter));
+    }
+
 }
 
