@@ -1,13 +1,14 @@
 package com.bridgelabz.quantity;
 
 public class Length {
-    private final int ONE_FOOT_TO_INCH = 12;
     private int value;
     private Unit unit;
 
-//    public static Length createFoot(int value) {
-//        return new Length(value, Unit.feet);
-//    }
+/*
+    public static Length createFoot(int value) {
+        return new Length(value, Unit.feet);
+    }
+*/
 
     public Length(int value, Unit unit) {
         this.unit = unit;
@@ -26,6 +27,5 @@ public class Length {
         }
 
         return false;
-
     }
 }
