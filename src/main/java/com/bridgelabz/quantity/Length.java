@@ -33,6 +33,6 @@ public class Length {
     }
 
     public double add(Length anotherZeroInch) {
-        return 0;
+        return this.value + anotherZeroInch.value;
     }
 }
