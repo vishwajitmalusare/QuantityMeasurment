@@ -32,7 +32,7 @@ public class Length {
         return false;
     }
 
-    public double add(Length anotherZeroInch) {
-        return this.value + anotherZeroInch.value;
+    public Length add(Length other) {
+        return new Length(unit.convertToBase(this.value) + other.unit.convertToBase(other.value), Unit.inch);
     }
 }

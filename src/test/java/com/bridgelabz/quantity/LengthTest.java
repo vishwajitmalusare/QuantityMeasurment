@@ -154,27 +154,42 @@ class LengthTest {
     }
 
     @Test
-    void givenZeroInchAndZeroInch_whenAdd_ThenShouldGetAdded(){
+    void givenZeroInchAndZeroInch_whenAdd_ThenShouldBeZeroInch(){
         Length zeroInch = new Length(0,Unit.inch);
         Length anotherZeroInch = new Length(0,Unit.inch);
 
-        assertEquals(0, zeroInch.add(anotherZeroInch));
+        assertEquals(new Length(0, Unit.inch), zeroInch.add(anotherZeroInch));
     }
 
     @Test
-    void givenOneInchAndOneInch_whenAdd_ThenShouldGetAdded(){
+    void givenOneInchAndOneInch_whenAdd_ThenShouldBeTwoInches(){
         Length oneInch = new Length(1,Unit.inch);
         Length anotherOneInch = new Length(1,Unit.inch);
 
-        assertEquals(2, oneInch.add(anotherOneInch));
+        assertEquals(new Length(2, Unit.inch), oneInch.add(anotherOneInch));
     }
 
     @Test
-    void givenZeroInchAndTwoInch_whenAdd_ThenShouldGetAdded(){
-        Length zeroInch = new Length(0,Unit.inch);
-        Length oneInch = new Length(1,Unit.inch);
+    void givenZeroInchAndTwoInch_whenAdd_ThenShouldBeFourInches(){
+        Length zeroInch = new Length(2,Unit.inch);
+        Length oneInch = new Length(2,Unit.inch);
 
-        assertEquals(1, zeroInch.add(oneInch));
+        assertEquals(new Length(4, Unit.inch), zeroInch.add(oneInch));
     }
 
+    @Test
+    void givenZeroInchAndZeroFeet_whenAdd_ThenShouldBeZeroInch(){
+        Length zeroFeet = new Length(0,Unit.feet);
+        Length zeroInch = new Length(0,Unit.inch);
+
+        assertEquals(new Length(0, Unit.inch), zeroFeet.add(zeroInch));
+    }
+
+    @Test
+    void givenZeroInchAndOneFeet_whenAdd_ThenShouldBeTwelveInches(){
+        Length oneFeet = new Length(1,Unit.feet);
+        Length zeroInch = new Length(0,Unit.inch);
+
+        assertEquals(new Length(12, Unit.inch), oneFeet.add(zeroInch));
+    }
 }
