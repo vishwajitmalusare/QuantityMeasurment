@@ -1,7 +1,7 @@
 package com.bridgelabz.quantity;
 
-public class Length {
-    private int value;
+public class Quantity {
+    private double value;
     private Unit unit;
 
 /*
@@ -10,10 +10,7 @@ public class Length {
     }
 */
 
-    public Length() {
-    }
-
-    public Length(int value, Unit unit) {
+    public Quantity(double value, Unit unit) {
         this.unit = unit;
         this.value = value;
     }
@@ -24,15 +21,15 @@ public class Length {
         if (this == other) {
             return true;
         }
-        if (other instanceof Length) {
-            Length length = (Length) other;
+        if (other instanceof Quantity) {
+            Quantity length = (Quantity) other;
             return unit.convertToBase(this.value) == length.unit.convertToBase(length.value);
         }
 
         return false;
     }
 
-    public Length add(Length other) {
-        return new Length(unit.convertToBase(this.value) + other.unit.convertToBase(other.value), Unit.inch);
+    public Quantity add(Quantity other) {
+        return new Quantity(unit.convertToBase(this.value) + other.unit.convertToBase(other.value), Unit.inch);
     }
 }
