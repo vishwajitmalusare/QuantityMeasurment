@@ -153,5 +153,12 @@ class LengthTest {
         assertEquals(threeFeet, oneYard);
     }
 
+    @Test
+    void givenTwoInchAndTwoInch_whenAdd_ThenShouldGetAdded(){
+        Length zeroInch = new Length(0,Unit.inch);
+        Length anotherZeroInch = new Length(0,Unit.inch);
+
+        assertEquals(0, zeroInch.add(anotherZeroInch));
+    }
 
 }

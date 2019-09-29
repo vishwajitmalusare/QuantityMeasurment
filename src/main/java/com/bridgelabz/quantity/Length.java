@@ -10,6 +10,9 @@ public class Length {
     }
 */
 
+    public Length() {
+    }
+
     public Length(int value, Unit unit) {
         this.unit = unit;
         this.value = value;
@@ -27,5 +30,9 @@ public class Length {
         }
 
         return false;
+    }
+
+    public double add(Length anotherZeroInch) {
+        return 0;
     }
 }
