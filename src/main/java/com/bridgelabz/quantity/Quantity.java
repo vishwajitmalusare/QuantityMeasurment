@@ -4,11 +4,6 @@ public class Quantity {
     private double value;
     private Unit unit;
 
-/*
-    public static Length createFoot(int value) {
-        return new Length(value, Unit.feet);
-    }
-*/
 
     public Quantity(double value, Unit unit) {
         this.unit = unit;
