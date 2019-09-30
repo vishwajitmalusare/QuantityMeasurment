@@ -25,6 +25,8 @@ public class Quantity {
     }
 
     public Quantity add(Quantity other) {
-        return new Quantity(unit.convertToBase(this.value) + other.unit.convertToBase(other.value), Unit.inch);
+        double quantityOne= unit.convertToBase(value);
+        double quantityTwo= other.unit.convertToBase(other.value);
+        return new Quantity(quantityOne + quantityTwo, other.unit);
     }
 }

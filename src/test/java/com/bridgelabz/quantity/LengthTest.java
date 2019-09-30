@@ -82,6 +82,7 @@ class LengthTest {
             assertNotEquals(null, zero);
         }
     }
+
     @Nested
     public class FeetInchTest {
         @Test
@@ -172,13 +173,48 @@ class LengthTest {
     @Nested
     class LiterTest {
         @Test
-        void givenZeroLiterAndZeroLiterWhenCheckEqualsThenTheyShouldZeroLiters() {
+        void givenZeroLiterAndZeroLiterWhenCheckEqualsThenTheyShouldEquals() {
             Quantity zeroLiter = new Quantity(0,Unit.liters);
             Quantity otherzeroLiter = new Quantity(0,Unit.liters);
             assertTrue(zeroLiter.equals(otherzeroLiter));
         }
 
+        @Test
+        void givenOneLiterAndOneLiterWhenCheckEqualsThenTheyShouldEquals() {
+            Quantity zeroLiter = new Quantity(0,Unit.liters);
+            Quantity otherzeroLiter = new Quantity(0,Unit.liters);
+            assertTrue(zeroLiter.equals(otherzeroLiter));
+        }
+
+        @Test
+        void givenOneLiterAndOneLiterWhenAddThenShoiuldBeTwoLiters() {
+            Quantity oneLiter = new Quantity(1,Unit.liters);
+            Quantity anotherOneLiter = new Quantity(1,Unit.liters);
+
+            assertEquals(new Quantity(2,Unit.liters),oneLiter.add(anotherOneLiter));
+        }
+
+        @Test
+        void givenOneLiterAndTwoLiterWhenAddThenShoiuldBeTwoLiters() {
+            Quantity oneLiter = new Quantity(1,Unit.liters);
+            Quantity twoLiters = new Quantity(2,Unit.liters);
+
+            assertEquals(new Quantity(3,Unit.liters),oneLiter.add(twoLiters));
+        }
+
      }
+
+     @Nested
+     class GallonTest {
+         @Test
+         void givenZeroGallonAndZeroGallon_WhenCheckEquals_ThenShouldBeEqual(){
+             Quantity zeroGallon = new Quantity(0.0, Unit.gallon);
+             Quantity otherZeroGallon = new Quantity(0.0, Unit.gallon);
+
+             assertTrue(otherZeroGallon.equals(otherZeroGallon));
+         }
+     }
+
     @Test
     void givenZeroGallonAndZeroLiters_WhenCheckEquals_ThenShouldBeEqual(){
         Quantity zeroGallon = new Quantity(0.0, Unit.gallon);
