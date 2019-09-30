@@ -6,23 +6,29 @@ public enum Unit {
         public Unit baseUnit() {
             return Unit.inch;
         }
-    }, inch(1) {
-        @Override
-        public Unit baseUnit() {
-            return Unit.inch;
-        }
-    }, yard(36) {
+    },
+
+    inch(1) {
         @Override
         public Unit baseUnit() {
             return Unit.inch;
         }
     },
+
+    yard(36) {
+        @Override
+        public Unit baseUnit() {
+            return Unit.inch;
+        }
+    },
+
     gallon(3.78) {
         @Override
         public Unit baseUnit() {
             return Unit.liters;
         }
     },
+
     liters(1) {
         @Override
         public Unit baseUnit() {
@@ -40,6 +46,6 @@ public enum Unit {
     }
 
     public Quantity convertToBase(double value) {
-        return new Quantity(value * converter,baseUnit());
+        return new Quantity(value * converter, baseUnit());
     }
 }

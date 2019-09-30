@@ -21,6 +21,7 @@ public class Quantity {
             Quantity baseOne =unit.convertToBase(this.value);
             Quantity baseTwo=length.unit.convertToBase(length.value);
             return  baseOne.value==baseTwo.value&&baseOne.unit==baseTwo.unit;
+
         }
 
         return false;
@@ -29,7 +30,7 @@ public class Quantity {
     public Quantity add(Quantity other) {
         Quantity quantityOne= unit.convertToBase(value);
         Quantity quantityTwo= other.unit.convertToBase(other.value);
-        return new Quantity(quantityOne.value + quantityTwo.value, quantityOne.unit.baseUnit());
+        return new Quantity(quantityOne.value + quantityTwo.value, quantityTwo.unit.baseUnit());
     }
 
     @Override
