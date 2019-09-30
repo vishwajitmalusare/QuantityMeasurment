@@ -269,10 +269,22 @@ class LengthTest {
 
         @Test
         void givenOneGallonAndOneLiterWhenAddThenShouldBeFourPointSevenEight() {
-            Quantity oneGallon = new Quantity(1,Unit.gallon);
-            Quantity oneLiter = new Quantity(1,Unit.liters);
-            assertEquals(new Quantity(4.779999999999999,Unit.liters),oneGallon.add(oneLiter));
+            Quantity oneGallon = new Quantity(1, Unit.gallon);
+            Quantity oneLiter = new Quantity(1, Unit.liters);
+            assertEquals(new Quantity(4.779999999999999, Unit.liters), oneGallon.add(oneLiter));
 
+        }
+    }
+
+    @Nested
+    class FeetAndLiterTest {
+        @Test
+        void givenZeroInchAndZeroLiterWhenCheckEqualsThenShoudNotEquals() {
+
+            Quantity oneInch = new Quantity(0,Unit.inch);
+            Quantity oneLiter = new Quantity(0,Unit.liters);
+
+            assertFalse(oneInch.equals(oneLiter));
         }
     }
 
