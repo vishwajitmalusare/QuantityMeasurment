@@ -288,12 +288,43 @@ class LengthTest {
         }
 
         @Test
-        void givenOneInchAndOneLiterWhenCheckEqualsThenShoudNotEquals() {
+        void givenOneInchAndOneLiterWhenCheckEqualThenShoudNotEquals() {
 
             Quantity oneInch = new Quantity(1, Unit.inch);
             Quantity oneLiter = new Quantity(1, Unit.liters);
 
             assertFalse(oneInch.equals(oneLiter));
+        }
+
+        @Test
+        void givenOneFeetAndOneLiterWhenCheckEqualThenShouldNotEqual() {
+            Quantity oneFeet = new Quantity(1,Unit.feet);
+            Quantity oneLiter = new Quantity(1,Unit.liters);
+
+            assertFalse(oneFeet.equals(oneLiter));
+        }
+
+        @Test
+        void givenOneInchtAndOneGallonWhenCheckEqualThenShouldNotEqual() {
+            Quantity oneInch = new Quantity(1,Unit.inch);
+            Quantity oneGallon = new Quantity(1,Unit.gallon);
+
+            assertFalse(oneInch.equals(oneGallon));
+        }
+        @Test
+        void givenOneFeetAndOneGallonWhenCheckEqualThenShouldNotEqual() {
+            Quantity oneFeet = new Quantity(1,Unit.feet);
+            Quantity oneGallon = new Quantity(1,Unit.gallon);
+
+            assertFalse(oneFeet.equals(oneGallon));
+        }
+
+        @Test
+        void givenOneYardAndOneLiterWhenCheckEqualThenShouldNotEqual() {
+            Quantity oneYard = new Quantity(1,Unit.yard);
+            Quantity oneLiter = new Quantity(1,Unit.liters);
+
+            assertFalse(oneYard.equals(oneLiter));
         }
     }
 
