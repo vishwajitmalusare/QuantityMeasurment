@@ -18,15 +18,25 @@ public class Quantity {
         }
         if (other instanceof Quantity) {
             Quantity length = (Quantity) other;
-            return unit.convertToBase(this.value) == length.unit.convertToBase(length.value);
+            Quantity baseOne =unit.convertToBase(this.value);
+            Quantity baseTwo=length.unit.convertToBase(length.value);
+            return  baseOne.value==baseTwo.value&&baseOne.unit==baseTwo.unit;
         }
 
         return false;
     }
 
     public Quantity add(Quantity other) {
-        double quantityOne= unit.convertToBase(value);
-        double quantityTwo= other.unit.convertToBase(other.value);
-        return new Quantity(quantityOne + quantityTwo, other.unit);
+        Quantity quantityOne= unit.convertToBase(value);
+        Quantity quantityTwo= other.unit.convertToBase(other.value);
+        return new Quantity(quantityOne.value + quantityTwo.value, quantityOne.unit.baseUnit());
+    }
+
+    @Override
+    public String toString() {
+        return "Quantity{" +
+                "value=" + value +
+                ", unit=" + unit +
+                '}';
     }
 }
