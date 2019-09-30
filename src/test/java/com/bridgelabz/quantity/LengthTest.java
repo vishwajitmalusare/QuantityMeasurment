@@ -277,12 +277,21 @@ class LengthTest {
     }
 
     @Nested
-    class FeetAndLiterTest {
+    class VolumeAndLengthTest {
         @Test
         void givenZeroInchAndZeroLiterWhenCheckEqualsThenShoudNotEquals() {
 
             Quantity oneInch = new Quantity(0,Unit.inch);
             Quantity oneLiter = new Quantity(0,Unit.liters);
+
+            assertFalse(oneInch.equals(oneLiter));
+        }
+
+        @Test
+        void givenOneInchAndOneLiterWhenCheckEqualsThenShoudNotEquals() {
+
+            Quantity oneInch = new Quantity(1, Unit.inch);
+            Quantity oneLiter = new Quantity(1, Unit.liters);
 
             assertFalse(oneInch.equals(oneLiter));
         }
