@@ -326,6 +326,14 @@ class LengthTest {
 
             assertFalse(oneYard.equals(oneLiter));
         }
+
+        @Test
+        void givenOneYardAndOneGallonWhenCheckEqualThenShouldNotEqual() {
+            Quantity oneYard = new Quantity(1,Unit.yard);
+            Quantity oneGallon = new Quantity(1,Unit.gallon);
+
+            assertFalse(oneYard.equals(oneGallon));
+        }
     }
 
 }
