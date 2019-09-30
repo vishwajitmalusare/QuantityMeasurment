@@ -172,15 +172,9 @@ class LengthTest {
 
     @Nested
     class LiterTest {
-        @Test
-        void givenZeroLiterAndZeroLiterWhenCheckEqualsThenTheyShouldEquals() {
-            Quantity zeroLiter = new Quantity(0,Unit.liters);
-            Quantity otherzeroLiter = new Quantity(0,Unit.liters);
-            assertTrue(zeroLiter.equals(otherzeroLiter));
-        }
 
         @Test
-        void givenOneLiterAndOneLiterWhenCheckEqualsThenTheyShouldEquals() {
+        void givenZeroLiterAndZewroLiterWhenCheckEqualsThenTheyShouldEquals() {
             Quantity zeroLiter = new Quantity(0,Unit.liters);
             Quantity otherzeroLiter = new Quantity(0,Unit.liters);
             assertTrue(zeroLiter.equals(otherzeroLiter));
@@ -195,7 +189,15 @@ class LengthTest {
         }
 
         @Test
-        void givenOneLiterAndTwoLiterWhenAddThenShoiuldBeTwoLiters() {
+        void givenOneLiterAndTwoLiterWhenCheckEqualsThenShoiuldNotEqual() {
+            Quantity oneLiter = new Quantity(1,Unit.liters);
+            Quantity TwoLiter = new Quantity(2,Unit.liters);
+
+            assertFalse(oneLiter.equals(TwoLiter));
+        }
+
+        @Test
+        void givenOneLiterAndTwoLiterWhenAddThenShouldBeTwoLiters() {
             Quantity oneLiter = new Quantity(1,Unit.liters);
             Quantity twoLiters = new Quantity(2,Unit.liters);
 
@@ -213,31 +215,51 @@ class LengthTest {
 
              assertTrue(otherZeroGallon.equals(otherZeroGallon));
          }
+
+         @Test
+         void givenOneGallonAndOneGallon_WhenCheckEquals_ThenShouldBeEqual(){
+             Quantity oneGallon = new Quantity(1.0, Unit.gallon);
+             Quantity otherOneGallon = new Quantity(1.0, Unit.gallon);
+
+             assertTrue(otherOneGallon.equals(otherOneGallon));
+         }
+
+         @Test
+         void givenOneGallonAndTwoGallonWhenCheckEqualsThenShouldNotEquals() {
+             Quantity oneGallon = new Quantity(1.0,Unit.gallon);
+             Quantity twoGallon = new Quantity(2.0,Unit.gallon);
+
+             assertFalse(oneGallon.equals(twoGallon));
+         }
      }
 
-    @Test
-    void givenZeroGallonAndZeroLiters_WhenCheckEquals_ThenShouldBeEqual(){
-        Quantity zeroGallon = new Quantity(0.0, Unit.gallon);
-        Quantity zeroLiter = new Quantity(0.0, Unit.liters);
 
-        assertTrue(zeroGallon.equals(zeroLiter));
-    }
+     @Nested
+     class GallonAndLiters {
+         @Test
+         void givenZeroGallonAndZeroLiters_WhenCheckEquals_ThenShouldBeEqual() {
+             Quantity zeroGallon = new Quantity(0.0, Unit.gallon);
+             Quantity zeroLiter = new Quantity(0.0, Unit.liters);
 
-    @Test
-    void givenOneGallonAndZeroLiters_WhenCheckEquals_ThenShouldNotBeEqual(){
-        Quantity oneGallon = new Quantity(1.0, Unit.gallon);
-        Quantity zeroLiter = new Quantity(0.0, Unit.liters);
+             assertTrue(zeroGallon.equals(zeroLiter));
+         }
 
-        assertFalse(oneGallon.equals(zeroLiter));
-    }
+         @Test
+         void givenOneGallonAndZeroLiters_WhenCheckEquals_ThenShouldNotBeEqual() {
+             Quantity oneGallon = new Quantity(1.0, Unit.gallon);
+             Quantity zeroLiter = new Quantity(0.0, Unit.liters);
 
-    @Test
-    void givenOneGallonAndThreePointSevenEightLiters_WhenCheckEquals_ThenShouldNotBeEqual(){
-        Quantity oneGallon = new Quantity(1.0, Unit.gallon);
-        Quantity threePointSevenEightLiter = new Quantity(3.78, Unit.liters);
+             assertFalse(oneGallon.equals(zeroLiter));
+         }
 
-        assertTrue(oneGallon.equals(threePointSevenEightLiter));
-    }
+         @Test
+         void givenOneGallonAndThreePointSevenEightLiters_WhenCheckEquals_ThenShouldNotBeEqual() {
+             Quantity oneGallon = new Quantity(1.0, Unit.gallon);
+             Quantity threePointSevenEightLiter = new Quantity(3.78, Unit.liters);
+
+             assertTrue(oneGallon.equals(threePointSevenEightLiter));
+         }
+     }
 
 }
 
