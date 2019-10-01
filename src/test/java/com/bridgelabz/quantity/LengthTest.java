@@ -342,9 +342,9 @@ class LengthTest {
             Quantity oneLiter = new Quantity(1, Unit.liters);
 
             assertThrows(IllegalAccessError.class,
-            ()-> {
-                oneInch.add(oneLiter);
-            }
+                    () -> {
+                        oneInch.add(oneLiter);
+                    }
             );
         }
 
@@ -354,7 +354,7 @@ class LengthTest {
             Quantity oneGallon = new Quantity(1, Unit.gallon);
 
             assertThrows(IllegalAccessError.class,
-                    ()-> {
+                    () -> {
                         oneInch.add(oneGallon);
                     }
             );
@@ -366,25 +366,44 @@ class LengthTest {
             Quantity oneLiter = new Quantity(1, Unit.liters);
 
             assertThrows(IllegalAccessError.class,
-                    ()-> {
+                    () -> {
                         oneInch.add(oneLiter);
                     }
             );
         }
 
         @Test
-        void givenOneYardAndOneLiterWhenAddThenShouldNotAdd() {
-            Quantity oneYard = new Quantity(1,Unit.yard);
-            Quantity oneLiter = new Quantity(1,Unit.liters);
+        void givenOneFeetAndOneGallonWhenAddThenShouldNotAdd() {
+            Quantity oneYard = new Quantity(1, Unit.feet);
+            Quantity oneGallon = new Quantity(1, Unit.gallon);
 
             assertThrows(IllegalAccessError.class,
-                    ()->{
-                oneYard.add(oneLiter);
+                    () -> {
+                        oneYard.add(oneGallon);
                     });
         }
 
+        @Test
+        void givenOneYardAndOneLiterWhenAddThenShouldNotAdd() {
+            Quantity oneYard = new Quantity(1, Unit.yard);
+            Quantity oneLiter = new Quantity(1, Unit.liters);
 
+            assertThrows(IllegalAccessError.class,
+                    () -> {
+                        oneYard.add(oneLiter);
+                    });
+        }
 
+        @Test
+        void givenOneYardAndOneGallonWhenAddThenShouldNotAdd() {
+            Quantity oneYard = new Quantity(1, Unit.yard);
+            Quantity oneGallon = new Quantity(1, Unit.gallon);
+
+            assertThrows(IllegalAccessError.class,
+                    () -> {
+                        oneYard.add(oneGallon);
+                    });
+        }
 
     }
 
