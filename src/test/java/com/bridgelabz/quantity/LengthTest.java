@@ -68,7 +68,7 @@ class LengthTest {
         }
 
         @Test
-        void givenZeroInchAndTwoInch_whenAdd_ThenShouldBeFourInches() {
+        void givenZeroInchAndTwoInch_whenAdd_ThenShouldBeFourInches() throws IllegalAccessError {
             Quantity zeroInch = new Quantity(2, Unit.inch);
             Quantity oneInch = new Quantity(2, Unit.inch);
 
@@ -181,7 +181,7 @@ class LengthTest {
         }
 
         @Test
-        void givenOneLiterAndOneLiterWhenAddThenShoiuldBeTwoLiters() {
+        void givenOneLiterAndOneLiterWhenAddThenShoiuldBeTwoLiters() throws IllegalAccessError {
             Quantity oneLiter = new Quantity(1, Unit.liters);
             Quantity anotherOneLiter = new Quantity(1, Unit.liters);
 
@@ -197,7 +197,7 @@ class LengthTest {
         }
 
         @Test
-        void givenOneLiterAndTwoLiterWhenAddThenShouldBeTwoLiters() {
+        void givenOneLiterAndTwoLiterWhenAddThenShouldBeTwoLiters() throws IllegalAccessError {
             Quantity oneLiter = new Quantity(1, Unit.liters);
             Quantity twoLiters = new Quantity(2, Unit.liters);
 
@@ -233,7 +233,7 @@ class LengthTest {
         }
 
         @Test
-        void givenOneGallonAndOneGallonWhenAddThenShouldBeTwoGallon() {
+        void givenOneGallonAndOneGallonWhenAddThenShouldBeTwoGallon() throws IllegalAccessError {
             Quantity oneGallon = new Quantity(1, Unit.gallon);
             Quantity anotherOneGallon = new Quantity(1, Unit.gallon);
 
@@ -268,7 +268,7 @@ class LengthTest {
         }
 
         @Test
-        void givenOneGallonAndOneLiterWhenAddThenShouldBeFourPointSevenEight() {
+        void givenOneGallonAndOneLiterWhenAddThenShouldBeFourPointSevenEight() throws IllegalAccessError {
             Quantity oneGallon = new Quantity(1, Unit.gallon);
             Quantity oneLiter = new Quantity(1, Unit.liters);
             assertEquals(new Quantity(4.779999999999999, Unit.liters), oneGallon.add(oneLiter));
@@ -281,8 +281,8 @@ class LengthTest {
         @Test
         void givenZeroInchAndZeroLiterWhenCheckEqualsThenShoudNotEquals() {
 
-            Quantity oneInch = new Quantity(0,Unit.inch);
-            Quantity oneLiter = new Quantity(0,Unit.liters);
+            Quantity oneInch = new Quantity(0, Unit.inch);
+            Quantity oneLiter = new Quantity(0, Unit.liters);
 
             assertFalse(oneInch.equals(oneLiter));
         }
@@ -298,41 +298,54 @@ class LengthTest {
 
         @Test
         void givenOneFeetAndOneLiterWhenCheckEqualThenShouldNotEqual() {
-            Quantity oneFeet = new Quantity(1,Unit.feet);
-            Quantity oneLiter = new Quantity(1,Unit.liters);
+            Quantity oneFeet = new Quantity(1, Unit.feet);
+            Quantity oneLiter = new Quantity(1, Unit.liters);
 
             assertFalse(oneFeet.equals(oneLiter));
         }
 
         @Test
         void givenOneInchtAndOneGallonWhenCheckEqualThenShouldNotEqual() {
-            Quantity oneInch = new Quantity(1,Unit.inch);
-            Quantity oneGallon = new Quantity(1,Unit.gallon);
+            Quantity oneInch = new Quantity(1, Unit.inch);
+            Quantity oneGallon = new Quantity(1, Unit.gallon);
 
             assertFalse(oneInch.equals(oneGallon));
         }
+
         @Test
         void givenOneFeetAndOneGallonWhenCheckEqualThenShouldNotEqual() {
-            Quantity oneFeet = new Quantity(1,Unit.feet);
-            Quantity oneGallon = new Quantity(1,Unit.gallon);
+            Quantity oneFeet = new Quantity(1, Unit.feet);
+            Quantity oneGallon = new Quantity(1, Unit.gallon);
 
             assertFalse(oneFeet.equals(oneGallon));
         }
 
         @Test
         void givenOneYardAndOneLiterWhenCheckEqualThenShouldNotEqual() {
-            Quantity oneYard = new Quantity(1,Unit.yard);
-            Quantity oneLiter = new Quantity(1,Unit.liters);
+            Quantity oneYard = new Quantity(1, Unit.yard);
+            Quantity oneLiter = new Quantity(1, Unit.liters);
 
             assertFalse(oneYard.equals(oneLiter));
         }
 
         @Test
         void givenOneYardAndOneGallonWhenCheckEqualThenShouldNotEqual() {
-            Quantity oneYard = new Quantity(1,Unit.yard);
-            Quantity oneGallon = new Quantity(1,Unit.gallon);
+            Quantity oneYard = new Quantity(1, Unit.yard);
+            Quantity oneGallon = new Quantity(1, Unit.gallon);
 
             assertFalse(oneYard.equals(oneGallon));
+        }
+
+        @Test
+        void givenOneInchAndOneLiterWhenAddThenShouldNotAdded() {
+            Quantity oneInch = new Quantity(1, Unit.inch);
+            Quantity oneLiter = new Quantity(1, Unit.liters);
+
+            assertThrows(IllegalAccessError.class,
+            ()-> {
+                oneInch.add(oneLiter);
+            }
+            );
         }
     }
 

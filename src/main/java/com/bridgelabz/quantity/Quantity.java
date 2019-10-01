@@ -27,9 +27,13 @@ public class Quantity {
         return false;
     }
 
-    public Quantity add(Quantity other) {
+    public Quantity add(Quantity other) throws IllegalAccessError {
         Quantity quantityOne = unit.convertToBase(value);
         Quantity quantityTwo = other.unit.convertToBase(other.value);
+
+        if (!(quantityOne.unit.equals(quantityTwo.unit))) {
+            throw new IllegalAccessError("Cannot perform addition on different quantity unit");
+        }
         return new Quantity(quantityOne.value + quantityTwo.value, quantityTwo.unit.baseUnit());
     }
 
