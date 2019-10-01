@@ -360,6 +360,31 @@ class LengthTest {
             );
         }
 
+        @Test
+        void givenFeetInchAndOneLiterWhenAddThenShouldNotAdd() {
+            Quantity oneInch = new Quantity(1, Unit.feet);
+            Quantity oneLiter = new Quantity(1, Unit.liters);
+
+            assertThrows(IllegalAccessError.class,
+                    ()-> {
+                        oneInch.add(oneLiter);
+                    }
+            );
+        }
+
+        @Test
+        void givenOneYardAndOneLiterWhenAddThenShouldNotAdd() {
+            Quantity oneYard = new Quantity(1,Unit.yard);
+            Quantity oneLiter = new Quantity(1,Unit.liters);
+
+            assertThrows(IllegalAccessError.class,
+                    ()->{
+                oneYard.add(oneLiter);
+                    });
+        }
+
+
+
 
     }
 
