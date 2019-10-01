@@ -68,7 +68,7 @@ class LengthTest {
         }
 
         @Test
-        void givenZeroInchAndTwoInch_whenAdd_ThenShouldBeFourInches() throws IllegalAccessError {
+        void givenZeroInchAndTwoInch_whenAdd_ThenShouldBeFourInches() {
             Quantity zeroInch = new Quantity(2, Unit.inch);
             Quantity oneInch = new Quantity(2, Unit.inch);
 
@@ -152,7 +152,6 @@ class LengthTest {
             assertEquals(oneYard, anotherOneYard);
         }
     }
-
     @Nested
     public class YardFeetInchTest {
         @Test
@@ -168,6 +167,7 @@ class LengthTest {
             Quantity threeFeet = new Quantity(3, Unit.feet);
             assertEquals(threeFeet, oneYard);
         }
+        // TODO - yard and feet test
     }
 
     @Nested
@@ -181,7 +181,7 @@ class LengthTest {
         }
 
         @Test
-        void givenOneLiterAndOneLiterWhenAddThenShoiuldBeTwoLiters() throws IllegalAccessError {
+        void givenOneLiterAndOneLiterWhenAddThenShoiuldBeTwoLiters() throws IllegalArgumentException {
             Quantity oneLiter = new Quantity(1, Unit.liters);
             Quantity anotherOneLiter = new Quantity(1, Unit.liters);
 
@@ -197,7 +197,7 @@ class LengthTest {
         }
 
         @Test
-        void givenOneLiterAndTwoLiterWhenAddThenShouldBeTwoLiters() throws IllegalAccessError {
+        void givenOneLiterAndTwoLiterWhenAddThenShouldBeTwoLiters() throws IllegalArgumentException {
             Quantity oneLiter = new Quantity(1, Unit.liters);
             Quantity twoLiters = new Quantity(2, Unit.liters);
 
@@ -233,7 +233,7 @@ class LengthTest {
         }
 
         @Test
-        void givenOneGallonAndOneGallonWhenAddThenShouldBeTwoGallon() throws IllegalAccessError {
+        void givenOneGallonAndOneGallonWhenAddThenShouldBeTwoGallon() throws IllegalArgumentException {
             Quantity oneGallon = new Quantity(1, Unit.gallon);
             Quantity anotherOneGallon = new Quantity(1, Unit.gallon);
 
@@ -341,11 +341,10 @@ class LengthTest {
             Quantity oneInch = new Quantity(1, Unit.inch);
             Quantity oneLiter = new Quantity(1, Unit.liters);
 
-            assertThrows(IllegalAccessError.class,
-                    () -> {
-                        oneInch.add(oneLiter);
-                    }
-            );
+            Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+                oneInch.add(oneLiter);
+            });
+            assertEquals("Can't add" +Unit.inch+" And "+Unit.liters,exception.getMessage());
         }
 
         @Test
@@ -353,11 +352,11 @@ class LengthTest {
             Quantity oneInch = new Quantity(1, Unit.inch);
             Quantity oneGallon = new Quantity(1, Unit.gallon);
 
-            assertThrows(IllegalAccessError.class,
-                    () -> {
-                        oneInch.add(oneGallon);
-                    }
-            );
+            Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+                oneInch.add(oneGallon);
+            });
+            assertEquals("Can't add" +Unit.inch+" And "+Unit.gallon,exception.getMessage());
+
         }
 
         @Test
@@ -365,11 +364,10 @@ class LengthTest {
             Quantity oneInch = new Quantity(1, Unit.feet);
             Quantity oneLiter = new Quantity(1, Unit.liters);
 
-            assertThrows(IllegalAccessError.class,
-                    () -> {
-                        oneInch.add(oneLiter);
-                    }
-            );
+            Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+                oneInch.add(oneLiter);
+            });
+            assertEquals("Can't add" +Unit.feet+" And "+Unit.liters,exception.getMessage());
         }
 
         @Test
@@ -377,10 +375,11 @@ class LengthTest {
             Quantity oneYard = new Quantity(1, Unit.feet);
             Quantity oneGallon = new Quantity(1, Unit.gallon);
 
-            assertThrows(IllegalAccessError.class,
-                    () -> {
-                        oneYard.add(oneGallon);
-                    });
+           Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+                oneYard.add(oneGallon);
+            });
+            assertEquals("Can't add" +Unit.feet+" And "+Unit.gallon,exception.getMessage());
+
         }
 
         @Test
@@ -388,10 +387,11 @@ class LengthTest {
             Quantity oneYard = new Quantity(1, Unit.yard);
             Quantity oneLiter = new Quantity(1, Unit.liters);
 
-            assertThrows(IllegalAccessError.class,
-                    () -> {
-                        oneYard.add(oneLiter);
-                    });
+            Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+                oneYard.add(oneLiter);
+            });
+            assertEquals("Can't add" +Unit.yard+" And "+Unit.liters,exception.getMessage());
+
         }
 
         @Test
@@ -399,10 +399,11 @@ class LengthTest {
             Quantity oneYard = new Quantity(1, Unit.yard);
             Quantity oneGallon = new Quantity(1, Unit.gallon);
 
-            assertThrows(IllegalAccessError.class,
-                    () -> {
-                        oneYard.add(oneGallon);
-                    });
+           Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+                oneYard.add(oneGallon);
+            });
+            assertEquals("Can't add" +Unit.yard+" And "+Unit.gallon,exception.getMessage());
+
         }
 
     }

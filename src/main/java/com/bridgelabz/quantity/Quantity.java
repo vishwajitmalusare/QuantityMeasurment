@@ -31,8 +31,8 @@ public class Quantity {
         Quantity quantityOne = unit.convertToBase(value);
         Quantity quantityTwo = other.unit.convertToBase(other.value);
 
-        if (!(quantityOne.unit.equals(quantityTwo.unit))) {
-            throw new IllegalAccessError("Cannot perform addition on different quantity unit");
+        if (!(quantityOne.unit.equals(quantityTwo.unit))) { // TODO - wrong exception.
+            throw new IllegalArgumentException("Can't add " +unit+ " And "+other.unit); // TODO - not tested for the message... Information of the error is incomplete...
         }
         return new Quantity(quantityOne.value + quantityTwo.value, quantityTwo.unit.baseUnit());
     }
