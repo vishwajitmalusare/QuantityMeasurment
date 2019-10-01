@@ -347,6 +347,20 @@ class LengthTest {
             }
             );
         }
+
+        @Test
+        void givenOneInchAndOneGallonWhenAddThenShouldNotAdded() {
+            Quantity oneInch = new Quantity(1, Unit.inch);
+            Quantity oneGallon = new Quantity(1, Unit.gallon);
+
+            assertThrows(IllegalAccessError.class,
+                    ()-> {
+                        oneInch.add(oneGallon);
+                    }
+            );
+        }
+
+
     }
 
 }
