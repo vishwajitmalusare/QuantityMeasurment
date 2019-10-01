@@ -2,10 +2,10 @@ package com.bridgelabz.quantity;
 
 public class Quantity {
     private double value;
-    private Unit unit;
+    private UnitInterface unit;
 
 
-    public Quantity(double value, Unit unit) {
+    public Quantity(double value, UnitInterface unit) {
         this.unit = unit;
         this.value = value;
     }
@@ -27,14 +27,14 @@ public class Quantity {
         return false;
     }
 
-    public Quantity add(Quantity other) throws IllegalAccessError {
+    public Quantity add(Quantity other) throws IllegalArgumentException {
         Quantity quantityOne = unit.convertToBase(value);
         Quantity quantityTwo = other.unit.convertToBase(other.value);
 
-        if (!(quantityOne.unit.equals(quantityTwo.unit))) { // TODO - wrong exception.
-            throw new IllegalArgumentException("Can't add " +unit+ " And "+other.unit); // TODO - not tested for the message... Information of the error is incomplete...
+        if (!(quantityOne.unit.equals(quantityTwo.unit))) {
+            throw new IllegalArgumentException("Can't add " + unit + " And " + other.unit);
         }
-        return new Quantity(quantityOne.value + quantityTwo.value, quantityTwo.unit.baseUnit());
+        return new Quantity(quantityOne.value + quantityTwo.value, quantityTwo.unit);
     }
 
     @Override
