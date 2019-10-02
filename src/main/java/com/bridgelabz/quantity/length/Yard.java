@@ -1,6 +1,9 @@
-package com.bridgelabz.quantity;
+package com.bridgelabz.quantity.length;
 
-public class Yard implements UnitInterface{
+import com.bridgelabz.quantity.Quantity;
+import com.bridgelabz.quantity.UnitInterface;
+
+public class Yard implements UnitInterface {
 
     private double converter = 36;
 

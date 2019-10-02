@@ -1,6 +1,9 @@
-package com.bridgelabz.quantity;
+package com.bridgelabz.quantity.length;
 
-public class Feet implements UnitInterface{
+import com.bridgelabz.quantity.Quantity;
+import com.bridgelabz.quantity.UnitInterface;
+
+public class Feet implements UnitInterface {
 
     private double converter = 12;
 

@@ -1,11 +1,19 @@
 package com.bridgelabz.quantity;
 
+import com.bridgelabz.quantity.length.Feet;
+import com.bridgelabz.quantity.length.Inch;
+import com.bridgelabz.quantity.length.Yard;
+import com.bridgelabz.quantity.temprature.DegreeCelsious;
+import com.bridgelabz.quantity.temprature.Fahrenhiet;
+import com.bridgelabz.quantity.temprature.NonAddableQuantity;
+import com.bridgelabz.quantity.volume.Gallon;
+import com.bridgelabz.quantity.volume.Liter;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class LengthTest {
+class QuantityTest {
 
     @Nested
     static class FeetTest {
@@ -154,25 +162,25 @@ class LengthTest {
     }
 
     @Nested
-    public class YardFeetInchTest {
-        @Test
-        void givenOneYardAndThirtySixInches_WhenCheckEquals_ThenTheyShouldBeEqual() {
-            Quantity oneYard = new Quantity(1, new Yard());
-            Quantity thirtySixInch = new Quantity(36, new Inch());
-            assertEquals(thirtySixInch, oneYard);
-        }
-
-        @Test
-        void givenOneYardAndThreeFeet_WhenCheckEquals_ThenTheyShouldBeEqual() {
-            Quantity oneYard = new Quantity(1, new Yard());
-            Quantity threeFeet = new Quantity(3, new Feet());
-            assertEquals(threeFeet, oneYard);
-        }
-        // TODO - yard and feet test
-    }
-
-    @Nested
     class LiterTest {
+
+        @Nested
+        public class YardFeetInchTest {
+            @Test
+            void givenOneYardAndThirtySixInches_WhenCheckEquals_ThenTheyShouldBeEqual() {
+                Quantity oneYard = new Quantity(1, new Yard());
+                Quantity thirtySixInch = new Quantity(36, new Inch());
+                assertEquals(thirtySixInch, oneYard);
+            }
+
+            @Test
+            void givenOneYardAndThreeFeet_WhenCheckEquals_ThenTheyShouldBeEqual() {
+                Quantity oneYard = new Quantity(1, new Yard());
+                Quantity threeFeet = new Quantity(3, new Feet());
+                assertEquals(threeFeet, oneYard);
+            }
+            // TODO - yard and feet test
+        }
 
         @Test
         void givenZeroLiterAndZewroLiterWhenCheckEqualsThenTheyShouldEquals() {
@@ -198,7 +206,7 @@ class LengthTest {
         }
 
         @Test
-        void givenOneLiterAndTwoLiterWhenAddThenShouldBeTwoLiters() throws IllegalArgumentException {
+        void givenOneLiterAndTwoLiterWhenAddThenShouldBeTwoLiters() throws IllegalArgumentException{
             Quantity oneLiter = new Quantity(1, new Liter());
             Quantity twoLiters = new Quantity(2, new Liter());
 
@@ -407,6 +415,7 @@ class LengthTest {
 
         @Test
         void givenOneYardAndOneGallonWhenAddThenShouldNotAdd() {
+
             Yard yard = new Yard();
             Gallon gallon = new Gallon();
             Quantity oneYard = new Quantity(1, yard);
@@ -419,6 +428,49 @@ class LengthTest {
 
         }
 
+    }
+
+    @Nested
+    class DegreeCelsiousFarheniteTest {
+        @Test
+        void givenZeroDegreeCelsiousAndZeroDegreeCelciousWhenCheckEqualsThenTheyAreEqual() {
+            NonAddableQuantity oneDegreeCelsious = new NonAddableQuantity(0, new DegreeCelsious());
+            NonAddableQuantity anotheroneDegreeCelsious = new NonAddableQuantity(0, new DegreeCelsious());
+
+            assertTrue(oneDegreeCelsious.equals(anotheroneDegreeCelsious));
+        }
+
+        @Test
+        void givenOneDegreeCelsiousAndOneDegreeCelciousWhenCheckEqualsThenTheyAreEqual() {
+            NonAddableQuantity oneDegreeCelsious = new NonAddableQuantity(1, new DegreeCelsious());
+            NonAddableQuantity anotheroneDegreeCelsious = new NonAddableQuantity(1, new DegreeCelsious());
+
+            assertTrue(oneDegreeCelsious.equals(anotheroneDegreeCelsious));
+        }
+
+        @Test
+        void givenOneDegreeCelsiousAndThirtyTwoFahrenhietWhenCheckEqualsThenTheyAreEqual() {
+            NonAddableQuantity oneDegreeCelsious = new NonAddableQuantity(0, new DegreeCelsious());
+            NonAddableQuantity oneFahrenhite = new NonAddableQuantity(32, new Fahrenhiet());
+
+            assertTrue(oneDegreeCelsious.equals(oneFahrenhite));
+        }
+        @Test
+        void givenOneDegreeCelsiousAndAnotherDegreeCelsiousWhenAddThenTheyShoiuldNotAdd() {
+            NonAddableQuantity oneDegreeCelsious = new NonAddableQuantity(1,new DegreeCelsious());
+            NonAddableQuantity anotherDegreeCelsious = new NonAddableQuantity(1,new DegreeCelsious());
+            assertTrue(oneDegreeCelsious.add(anotherDegreeCelsious));
+        }
+//        @Test //TODO - head to stop the compilation
+//        void givenOneDegreeCelsiousAndOneDegreeCelsiousWhenAddThenTheyShouldNotAdd() throws NonAddableUnitException {
+//            Quantity oneDegreeCelsious = new Quantity(1, new DegreeCelsious());
+//            Quantity anotherOneDegreeCelsious = new Quantity(1, new DegreeCelsious());
+//
+//            assertThrows(NonAddableUnitException.class,
+//                    ()->{
+//                oneDegreeCelsious.add(anotherOneDegreeCelsious);
+//
+//
     }
 
 }

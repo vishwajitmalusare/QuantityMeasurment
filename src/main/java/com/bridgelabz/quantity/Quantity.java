@@ -27,7 +27,7 @@ public class Quantity {
         return false;
     }
 
-    public Quantity add(Quantity other) throws IllegalArgumentException {
+    public Quantity add(Quantity other) throws IllegalArgumentException{
         Quantity quantityOne = unit.convertToBase(value);
         Quantity quantityTwo = other.unit.convertToBase(other.value);
 

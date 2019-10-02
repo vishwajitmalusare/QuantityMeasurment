@@ -1,6 +1,9 @@
-package com.bridgelabz.quantity;
+package com.bridgelabz.quantity.volume;
 
-public class Gallon implements UnitInterface{
+import com.bridgelabz.quantity.Quantity;
+import com.bridgelabz.quantity.UnitInterface;
+
+public class Gallon implements UnitInterface {
 
     private double converter = 3.78;
 
