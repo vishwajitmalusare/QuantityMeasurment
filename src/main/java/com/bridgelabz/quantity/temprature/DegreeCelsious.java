@@ -1,16 +1,16 @@
 package com.bridgelabz.quantity.temprature;
 
-import com.bridgelabz.quantity.Quantity;
-import com.bridgelabz.quantity.temprature.NonAddableUnitInterface;
+import com.bridgelabz.quantity.AddableQuantity;
+import com.bridgelabz.quantity.UnitInterface;
 
-public class DegreeCelsious implements NonAddableUnitInterface {
+public class DegreeCelsious implements UnitInterface {
 
     private  double converter = 1;
 
     @Override
-    public  NonAddableQuantity convertToBase(double value) {
+    public AddableQuantity convertToBase(double value) {
 
-        return new NonAddableQuantity(value * converter,new Fahrenhiet());
+        return new AddableQuantity(value * converter, new Fahrenhiet());
     }
 
 
